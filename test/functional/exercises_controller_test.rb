@@ -3,6 +3,11 @@ require 'test_helper'
 class ExercisesControllerTest < ActionController::TestCase
   setup do
     @exercise = exercises(:one)
+    @update = {
+      title:       'Random Exercise',
+      description: 'This is random!',
+      image_url:   'crosstrain.jpg'
+    }
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class ExercisesControllerTest < ActionController::TestCase
 
   test "should create exercise" do
     assert_difference('Exercise.count') do
-      post :create, exercise: { title: @exercise.title, description: @exercise.description, image_url: @exercise.image_url }
+      post :create, exercise: @update
     end
 
     assert_redirected_to exercise_path(assigns(:exercise))
@@ -35,7 +40,7 @@ class ExercisesControllerTest < ActionController::TestCase
   end
 
   test "should update exercise" do
-    put :update, id: @exercise, exercise: {  title: @exercise.title, description: @exercise.description, image_url: @exercise.image_url }
+    put :update, id: @exercise, exercise: @update
     assert_redirected_to exercise_path(assigns(:exercise))
   end
 

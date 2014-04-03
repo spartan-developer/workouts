@@ -9,3 +9,9 @@ two:
   title: MyString
   description: MyText
   image_url: MyString
+
+steady:
+  title:      Steady-State Rowing
+  description: 
+    A great workout if you're looking to put tons of meters!
+  image_url: singletime.jpg
