@@ -18,7 +18,7 @@ class ExerciseTest < ActiveSupport::TestCase
 
   test "image_url" do
     ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg 
-             http://a.b.c/x/y/z/fred.gif.more}
+             http://a.b.c/x/y/z/fred.gif}
     bad = %w{ fred.doc fred.gif/more fred.gif.more }
 
     ok.each do |name|
@@ -31,11 +31,11 @@ class ExerciseTest < ActiveSupport::TestCase
   end
 
   test "exercise is not valid without a unique title" do
-    exercise = Exercise.new(title:       exercises(:ruby).title,
+    exercise = Exercise.new(title:       exercises(:steady).title,
                             description: "yyy",
                             image_url:   "fred.gif")
-    assert product.invalid?
-    assert_equal ["has already been taken"], product.errors[:title]
+    assert exercise.invalid?
+    assert_equal ["has already been taken"], exercise.errors[:title]
   end
 
 end
