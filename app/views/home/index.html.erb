@@ -6,8 +6,9 @@
 
 <% @exercises.each do |exercise| %>
   <div class="entry">
-    <% image_tag(exercise.image_url) %>
+    <%= image_tag(exercise.image_url) %>
     <h3><%= exercise.title %></h3>
     <p><%= sanitize(exercise.description) %></p>
+    <%= button_to 'Add to Calendar', line_items_path(exercise_id: exercise) %>
   </div>
 <% end %>

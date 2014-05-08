@@ -1,7 +1,18 @@
 Workout::Application.routes.draw do
+  resources :users
+
+
+  resources :line_items
+
+  match 'calendars/prev_month/:year/:month' => 'calendars#prev_month'
+  match 'calendars/next_month/:year/:month' => 'calendars#next_month'
+  resources :calendars
+
   get "home/index"
 
   resources :exercises
+
+ 
 
 
   # The priority is based upon order of creation:
